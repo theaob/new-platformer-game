@@ -1,0 +1,105 @@
+[gd_scene load_steps=16 format=3 uid="uid://ceq7evs1pwfy2"]
+
+[ext_resource type="Texture2D" uid="uid://c4r1syv210ifm" path="res://assets/sprites/enemy-death/enemy-death-1.png" id="1_uep7l"]
+[ext_resource type="Script" path="res://frog.gd" id="1_vq3wr"]
+[ext_resource type="Texture2D" uid="uid://cntimgfmjsuy7" path="res://assets/sprites/enemy-death/enemy-death-2.png" id="2_2yhsp"]
+[ext_resource type="Texture2D" uid="uid://s6hkld35dp7h" path="res://assets/sprites/enemy-death/enemy-death-3.png" id="3_t67qx"]
+[ext_resource type="Texture2D" uid="uid://bt8ohljnnvvm2" path="res://assets/sprites/enemy-death/enemy-death-4.png" id="4_shqrm"]
+[ext_resource type="Texture2D" uid="uid://jypevdyi2nmu" path="res://assets/sprites/enemy-death/enemy-death-5.png" id="5_25r0t"]
+[ext_resource type="Texture2D" uid="uid://dygmsip8xr2rn" path="res://assets/sprites/enemy-death/enemy-death-6.png" id="6_nevcm"]
+[ext_resource type="Texture2D" uid="uid://eqoicrnly3ox" path="res://assets/sprites/frog/idle/frog-idle-1.png" id="7_4cq3f"]
+[ext_resource type="Texture2D" uid="uid://ckpf5msgsxa3w" path="res://assets/sprites/frog/idle/frog-idle-3.png" id="9_gqmvk"]
+[ext_resource type="Texture2D" uid="uid://x7acpwes6k7i" path="res://assets/sprites/frog/idle/frog-idle-4.png" id="10_5rbt6"]
+[ext_resource type="Texture2D" uid="uid://cg2k17ec0jhl5" path="res://assets/sprites/frog/jump/frog-jump-1.png" id="11_eogr0"]
+[ext_resource type="Texture2D" uid="uid://qpepc7froux6" path="res://assets/sprites/frog/jump/frog-jump-2.png" id="12_i40re"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y0egi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uep7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2yhsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t67qx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_shqrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_25r0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nevcm")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4cq3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5rbt6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gqmvk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5rbt6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4cq3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4cq3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4cq3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4cq3f")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_eogr0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_i40re")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uea4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_la013"]
+radius = 106.019
+
+[node name="Frog" type="CharacterBody2D"]
+script = ExtResource("1_vq3wr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_y0egi")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.335424
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2uea4")
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("CircleShape2D_la013")
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
