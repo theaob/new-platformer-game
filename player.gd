@@ -42,5 +42,6 @@ func update_animations():
 		animation_player.play("Jump")
 	elif velocity.y > 0:
 		animation_player.play("Fall")
-
-	$AnimatedSprite2D.flip_h = velocity.x < 0
+	
+	if velocity.x != 0:
+		$AnimatedSprite2D.flip_h = velocity.x < 0
