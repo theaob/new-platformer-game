@@ -45,8 +45,20 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_f6h5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nde61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f6h5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nde61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f6h5t")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -292,7 +304,6 @@ script = ExtResource("1_4tbhh")
 sprite_frames = SubResource("SpriteFrames_66qnr")
 animation = &"run"
 autoplay = "idle"
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
