@@ -559,6 +559,8 @@ script = ExtResource("5_wqr0n")
 [node name="Timer" type="Timer" parent="Collectibles"]
 autostart = true
 
+[node name="Cherries" type="Node2D" parent="Collectibles"]
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Hp" type="Label" parent="UI"]

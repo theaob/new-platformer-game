@@ -8,5 +8,5 @@ func _on_timer_timeout():
 	var x_rand = rng.randi_range(0, 300)
 	
 	cherry_instance.position = Vector2(x_rand,390)
-	add_child(cherry_instance)
+	get_node("Cherries").add_child(cherry_instance)
 	
