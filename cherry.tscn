@@ -50,6 +50,6 @@ shape = SubResource("CircleShape2D_gnqoe")
 sprite_frames = SubResource("SpriteFrames_fj3u7")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.610744
+frame_progress = 0.770604
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

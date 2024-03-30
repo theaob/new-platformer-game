@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://0h78o6c8oj3r" path="res://assets/tileset.png" id="3_nwvlk"]
 [ext_resource type="PackedScene" uid="uid://ceq7evs1pwfy2" path="res://frog.tscn" id="4_k76c6"]
 [ext_resource type="Script" path="res://Hp.gd" id="5_5lp66"]
-[ext_resource type="PackedScene" uid="uid://bam5cd0y7pxhk" path="res://cherry.tscn" id="5_ibw1j"]
+[ext_resource type="Script" path="res://Collectibles.gd" id="5_wqr0n"]
 [ext_resource type="Script" path="res://Gold.gd" id="6_d7xkh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2aa16"]
@@ -554,15 +554,10 @@ position = Vector2(784, 350)
 position = Vector2(817, 294)
 
 [node name="Collectibles" type="Node2D" parent="."]
+script = ExtResource("5_wqr0n")
 
-[node name="Cherry" parent="Collectibles" instance=ExtResource("5_ibw1j")]
-position = Vector2(26, 388)
-
-[node name="Cherry2" parent="Collectibles" instance=ExtResource("5_ibw1j")]
-position = Vector2(48, 389)
-
-[node name="Cherry3" parent="Collectibles" instance=ExtResource("5_ibw1j")]
-position = Vector2(70, 389)
+[node name="Timer" type="Timer" parent="Collectibles"]
+autostart = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -585,3 +580,5 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "GOLD"
 script = ExtResource("6_d7xkh")
+
+[connection signal="timeout" from="Collectibles/Timer" to="Collectibles" method="_on_timer_timeout"]
