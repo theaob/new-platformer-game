@@ -34,3 +34,9 @@ func _on_player_detection_body_entered(body):
 func _on_player_detection_body_exited(body):
 	if body.name == "Player":
 		chase = false
+
+func _on_player_death_body_entered(body):
+	if body.name == "Player":
+		$AnimatedSprite2D.play("death")
+		await $AnimatedSprite2D.animation_finished()
+		self.queue_free()
