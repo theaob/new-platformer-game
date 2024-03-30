@@ -7,12 +7,17 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player
 var chase = false
 
+func _ready():
+	$AnimatedSprite2D.play("idle")
+	chase = false
+
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	
 	if chase:
 		player = $"../../Player/Player"
-		$AnimatedSprite2D.play("jump")
+		if $AnimatedSprite2D.animation != "death":		
+			$AnimatedSprite2D.play("jump")
 		
 		var move_direction  = (player.position - self.position).normalized().x
 		if move_direction > 0:
@@ -23,7 +28,8 @@ func _physics_process(delta):
 		velocity.x = move_direction * SPEED
 	else:
 		velocity.x = 0
-		$AnimatedSprite2D.play("idle")
+		if $AnimatedSprite2D.animation != "death":
+			$AnimatedSprite2D.play("idle")
 		
 	move_and_slide()
 
@@ -37,6 +43,8 @@ func _on_player_detection_body_exited(body):
 
 func _on_player_death_body_entered(body):
 	if body.name == "Player":
+		chase = false
+		
 		$AnimatedSprite2D.play("death")
-		await $AnimatedSprite2D.animation_finished()
+		await $AnimatedSprite2D.animation_finished
 		self.queue_free()

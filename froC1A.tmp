@@ -34,9 +34,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_nevcm")
 }],
-"loop": false,
+"loop": true,
 "name": &"death",
-"speed": 8.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
