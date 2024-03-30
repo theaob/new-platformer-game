@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ro2cb4wasgus"]
+[gd_scene load_steps=10 format=3 uid="uid://ro2cb4wasgus"]
 
 [ext_resource type="PackedScene" uid="uid://cj73argmijxew" path="res://player.tscn" id="1_2plos"]
 [ext_resource type="PackedScene" uid="uid://bk67bguj77gr2" path="res://BG.tscn" id="2_spxim"]
 [ext_resource type="Texture2D" uid="uid://0h78o6c8oj3r" path="res://assets/tileset.png" id="3_nwvlk"]
 [ext_resource type="PackedScene" uid="uid://ceq7evs1pwfy2" path="res://frog.tscn" id="4_k76c6"]
 [ext_resource type="Script" path="res://Hp.gd" id="5_5lp66"]
+[ext_resource type="PackedScene" uid="uid://bam5cd0y7pxhk" path="res://cherry.tscn" id="5_ibw1j"]
 [ext_resource type="Script" path="res://Gold.gd" id="6_d7xkh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2aa16"]
@@ -551,6 +552,17 @@ position = Vector2(784, 350)
 
 [node name="Frog5" parent="Mobs" instance=ExtResource("4_k76c6")]
 position = Vector2(817, 294)
+
+[node name="Collectibles" type="Node2D" parent="."]
+
+[node name="Cherry" parent="Collectibles" instance=ExtResource("5_ibw1j")]
+position = Vector2(26, 388)
+
+[node name="Cherry2" parent="Collectibles" instance=ExtResource("5_ibw1j")]
+position = Vector2(48, 389)
+
+[node name="Cherry3" parent="Collectibles" instance=ExtResource("5_ibw1j")]
+position = Vector2(70, 389)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
