@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ro2cb4wasgus"]
+[gd_scene load_steps=9 format=3 uid="uid://ro2cb4wasgus"]
 
 [ext_resource type="PackedScene" uid="uid://cj73argmijxew" path="res://player.tscn" id="1_2plos"]
 [ext_resource type="PackedScene" uid="uid://bk67bguj77gr2" path="res://BG.tscn" id="2_spxim"]
 [ext_resource type="Texture2D" uid="uid://0h78o6c8oj3r" path="res://assets/tileset.png" id="3_nwvlk"]
 [ext_resource type="PackedScene" uid="uid://ceq7evs1pwfy2" path="res://frog.tscn" id="4_k76c6"]
 [ext_resource type="Script" path="res://Hp.gd" id="5_5lp66"]
+[ext_resource type="Script" path="res://Gold.gd" id="6_d7xkh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2aa16"]
 texture = ExtResource("3_nwvlk")
@@ -520,6 +521,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_2aa16")
 
 [node name="World" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [-94.0]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_shxde")
@@ -561,3 +563,13 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "HP"
 script = ExtResource("5_5lp66")
+
+[node name="Gold" type="Label" parent="UI"]
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 48.0
+offset_bottom = 74.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "HP"
+script = ExtResource("6_d7xkh")

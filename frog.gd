@@ -52,6 +52,8 @@ func _on_player_collision_body_entered(body):
 		die()
 
 func die():
+	Game.gold += 5
+	Utils.save_game()
 	$AnimatedSprite2D.play("death")
 	await $AnimatedSprite2D.animation_finished
 	self.queue_free()
