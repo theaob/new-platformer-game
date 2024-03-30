@@ -7,8 +7,6 @@ const JUMP_VELOCITY = -400.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var health = 10
-
 @onready var animation_player = get_node("AnimationPlayer")
 
 func _ready():
@@ -34,7 +32,7 @@ func _physics_process(delta):
 	update_animations()
 	move_and_slide()
 	
-	if health <= 0:
+	if Game.player_hp <= 0:
 		queue_free()
 		get_tree().change_scene_to_file("res://main_screen.tscn")
 		
@@ -54,5 +52,5 @@ func update_animations():
 		$AnimatedSprite2D.flip_h = velocity.x < 0
 		
 func hurt():
-	health -= 3
+	Game.player_hp -= 3
 	
